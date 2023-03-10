@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Home"),
+        ),
+        body: Column(children: [
+          Text("Hello World"),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/profile");
+              },
+              child: Text("Profile"))
+        ]),
+      ),
+    );
+  }
+}
