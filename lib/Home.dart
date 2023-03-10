@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/Profile.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -8,14 +9,20 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           title: Text("Home"),
         ),
-        body: Column(children: [
-          Text("Hello World"),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "/profile");
-              },
-              child: Text("Profile"))
-        ]),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Hello World"),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfilePageUI()));
+                },
+                child: Text("Profile"))
+            ]
+          ),
+        ),
       ),
     );
   }
