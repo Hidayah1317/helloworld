@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePageUI extends StatefulWidget {
   @override
@@ -6,6 +7,38 @@ class ProfilePageUI extends StatefulWidget {
 }
 
 class _ProfilePageUIState extends State<ProfilePageUI> {
+
+  _launchurlfb() async {
+    const url = "https://www.facebook.com/nurulhidayah.jemat?mibextid=ZbWKwL";
+    // ignore: deprecated_member_use
+    if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
+      await launch(url, forceWebView: true);
+    } else {
+      throw "Could not launch the url";
+    }
+  }
+    _launchurlwechat() async {
+    const url = "https://instagram.com/nh230323?igshid=ZDdkNTZiNTM=";
+    // ignore: deprecated_member_use
+    if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
+      await launch(url, forceWebView: true);
+    } else {
+      throw "Could not launch the url";
+    }
+  }
+    _launchurltiktok() async {
+    const url = "https://www.tiktok.com/@hidayahr23?_r=1&_d=e00b3bbhe9a9am&language=en&sec_uid=MS4wLjABAAAA9OJDFZ8HT42RIHrx1crbUuTlVKHxO9GWg_wkGPb6P6KKKJ1qkGeVX0FOLA2XDUOg&share_author_id=7107818890000712705&source=h5_t&u_code=e27jd4lf8ke22a&timestamp=1678437000&user_id=7107818890000712705&sec_user_id=MS4wLjABAAAA9OJDFZ8HT42RIHrx1crbUuTlVKHxO9GWg_wkGPb6P6KKKJ1qkGeVX0FOLA2XDUOg&utm_source=whatsapp&utm_campaign=client_share&utm_medium=android&share_iid=7205155911622166298&share_link_id=b904cafe-af62-4577-936b-c8224335994b&share_app_id=1180&ugbiz_name=Account&ug_btm=b8727%2Cb4907";
+    // ignore: deprecated_member_use
+    if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
+      await launch(url, forceWebView: true);
+    } else {
+      throw "Could not launch the url";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,8 +94,7 @@ class _ProfilePageUIState extends State<ProfilePageUI> {
           ),
           Card(
             child: Container(
-              child: Column(
-                children: <Widget>[
+              child: Column(children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: Text(
@@ -116,32 +148,47 @@ class _ProfilePageUIState extends State<ProfilePageUI> {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Icon(
-                        Icons.facebook_outlined,
-                        size: 50,
-                        color: Colors.blue,
+                      IconButton(
+                        icon: Icon(
+                          Icons.facebook_outlined,
+                          size: 50,
+                          color: Colors.blue,
+                        ),
+                        onPressed: () {
+                          _launchurlfb();
+                        },
                       ),
-                      Text("/nurulhidayah.jemat"),
+                      Text("\nFacebook"),
                     ],
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(
-                        Icons.wechat_outlined,
-                        size: 50,
-                        color: Colors.green,
+                      IconButton(
+                        icon: Icon(
+                          Icons.wechat_outlined,
+                          size: 50,
+                          color: Colors.green,
+                        ),
+                        onPressed: () {
+                          _launchurlwechat();
+                        },
                       ),
-                      Text("hidayah13")
+                      Text("\nWechat")
                     ],
                   ),
                   Column(
                     children: <Widget>[
-                      Icon(
-                        Icons.tiktok_outlined,
-                        size: 50,
-                        color: Colors.black,
+                      IconButton(
+                        icon: Icon(
+                          Icons.tiktok_outlined,
+                          size: 50,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          _launchurltiktok();
+                        },
                       ),
-                      Text("@hidayahr23")
+                      Text("\nTikTok")
                     ],
                   ),
                 ],
