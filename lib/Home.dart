@@ -5,6 +5,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color.fromARGB(255, 237, 142, 173),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text("Home"),
@@ -13,13 +16,20 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Hello World"),
+              Text(
+                "My Profile",
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Font2",
+                ),
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ProfilePageUI()));
                 },
-                child: Text("Profile"))
+                child: Text("Here"))
             ]
           ),
         ),
