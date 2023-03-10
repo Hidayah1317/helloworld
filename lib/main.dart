@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/Splash.dart';
 
-import 'Home.dart';
+//import 'Home.dart';
 import 'Profile.dart';
 
 void main() {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
         duration: 3000,
-        splashTransition: SplashTransition.scaleTransition,
+        splashTransition: SplashTransition.rotationTransition,
         backgroundColor: Colors.yellow,
         nextScreen: ProfilePageUI(),
       ),
